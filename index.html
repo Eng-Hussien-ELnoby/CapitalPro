@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapitalPro - استثمر بذكاء، أرباح مضمونة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A1F44;
+            --secondary: #FFD700;
+            --light-bg: #F4F6FA;
+            --dark-text: #1C1C1C;
+            --success: #00C853;
+            --white: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --gradient: linear-gradient(135deg, #0A1F44 0%, #1a3a75 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #e6c200;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        header {
+            background-color: rgba(10, 31, 68, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            background-color: rgba(10, 31, 68, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        .logo i {
+            margin-left: 10px;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .hero {
+            background: var(--gradient), url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: rgba(255, 215, 0, 0.2);
+            z-index: -1;
+            border-radius: 5px;
+        }
+
+        .features {
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover::before {
+            height: 100%;
+        }
+
+        .feature-card:hover .feature-icon,
+        .feature-card:hover h3,
+        .feature-card:hover p {
+            color: var(--white);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .feature-card p {
+            transition: var(--transition);
+        }
+
+        .plans {
+            background-color: var(--light-bg);
+        }
+
+        .plans-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .plan-tab {
+            padding: 10px 25px;
+            background-color: var(--white);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            border: 2px solid transparent;
+        }
+
+        .plan-tab.active {
+            background-color: var(--secondary);
+            color: var(--primary);
+            border-color: var(--secondary);
+        }
+
+        .plan-tab:hover:not(.active) {
+            border-color: var(--secondary);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .plan-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .plan-card.popular {
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .plan-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .plan-card.popular::before {
+            content: 'الأكثر شيوعاً';
+            position: absolute;
+            top: 20px;
+            left: -30px;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 5px 30px;
+            transform: rotate(-45deg);
+            font-weight: 700;
+            font-size: 0.8rem;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .plan-header {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(30deg);
+        }
+
+        .plan-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .plan-period {
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .plan-body {
+            padding: 30px 20px;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-right: 25px;
+            transition: var(--transition);
+        }
+
+        .plan-features li:hover {
+            background-color: rgba(10, 31, 68, 0.03);
+            padding-right: 30px;
+        }
+
+        .plan-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            color: var(--success);
+        }
+
+        .daily-profit {
+            background-color: rgba(0, 200, 83, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--success);
+        }
+
+        .plan-button {
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .stats {
+            background: var(--gradient);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/black-paper.png');
+            opacity: 0.1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .testimonials {
+            background-color: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-text::before {
+            content: '\201C';
+            font-size: 4rem;
+            color: var(--secondary);
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            opacity: 0.3;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-left: 15px;
+            overflow: hidden;
+            border: 2px solid var(--secondary);
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cta {
+            background: var(--gradient), url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 70px 0 20px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+            padding-right: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+            text-decoration: none;
+        }
+
+        .floating-btn.telegram {
+            background: linear-gradient(135deg, #0088cc 0%, #00aced 100%);
+        }
+
+        .floating-btn.whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(0, 136, 204, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 136, 204, 0);
+            }
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: var(--secondary);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* أنماط إضافية للعناصر الجديدة */
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            background-color: var(--white);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-answer {
+            background-color: var(--light-bg);
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-info h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .member-info .position {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .certificates {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .certificate-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .certificate-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .blog-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more i {
+            margin-right: 5px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover i {
+            transform: translateX(-5px);
+        }
+
+        .external-reviews {
+            background-color: var(--light-bg);
+            padding: 60px 0;
+        }
+
+        .review-platforms {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .platform-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+        }
+
+        .platform-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .platform-logo {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .platform-rating {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .platform-stars {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .platform-link {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .plan-card.popular {
+                transform: scale(1);
+            }
+            
+            .plan-card.popular:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                position: fixed;
+                top: 70px;
+                right: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .floating-buttons {
+                left: 15px;
+                bottom: 15px;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط التقدم -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- الهيدر -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-chart-line"></i>
+                Capital<span>Pro</span>
+            </a>
+            
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#plans">خطط الاستثمار</a></li>
+                    <li><a href="#team">فريق العمل</a></li>
+                    <li><a href="#testimonials">آراء العملاء</a></li>
+                    <li><a href="#blog">المدونة</a></li>
+                    <li><a href="#faq">الأسئلة الشائعة</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="https://t.me/CryptoEmperor5" class="btn btn-secondary">انضم إلينا</a>
+                <a href="https://t.me/CryptoEmperor5" class="btn btn-primary">ابدأ الاستثمار</a>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- القسم البطولي -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 data-aos="fade-up">استثمر بذكاء، أرباح <span class="highlight">تصل إلى 10 أضعاف</span></h1>
+            <p data-aos="fade-up" data-aos-delay="200">ابدأ رحلتك الاستثمارية مع CapitalPro، حيث نوفر لك فرص استثمارية مضمونة تبدأ من 50 دولار فقط. إدارة احترافية، أرباح مضمونة، وسحب فوري.</p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://t.me/CryptoEmperor5" class="btn btn-primary">ابدأ الاستثمار الآن</a>
+                <a href="#plans" class="btn btn-secondary">عرض الخطط</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الميزات -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-aos="fade-up">لماذا تختار CapitalPro؟</h2>
+                <p data-aos="fade-up" data-aos-delay="200">نحن نقدم أفضل الحلول الاستثمارية مع فريق من الخبراء الماليين</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>عوائد مضمونة</h3>
+                    <p>عوائد استثمارية تصل إلى 10 أضعاف رأس المال مع خطط استثمارية متنوعة تناسب جميع المستثمرين.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>أمان وحماية</h3>
+                    <p>نظام أمني متقدم لحماية استثماراتك مع شهادات SSL وتشفير متقدم لجميع المعاملات.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم فني 24/7</h3>
+                    <p>فريق دعم فني متاح على مدار الساعة لمساعدتك في أي استفسار أو مشكلة قد تواجهك.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>سحب فوري</h3>
+                    <p>يمكنك سحب أرباحك في أي وقت دون انتظار، مع معالجة فورية لطلبات السحب خلال 24 ساعة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخطط الاستثمارية -->
+    <section class="plans" id="plans">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-aos="fade-up">خطط الاستثمار</h2>
+                <p data-aos="fade-up" data-aos-delay="200">اختر الخطة الاستثمارية التي تناسب أهدافك المالية</p>
+            </div>
+            
+            <div class="plans-tabs">
+                <div class="plan-tab active" data-tab="daily">خطط يومية</div>
+                <div class="plan-tab" data-tab="weekly">خطط أسبوعية</div>
+                <div class="plan-tab" data-tab="monthly">خطط شهرية</div>
+                <div class="plan-tab" data-tab="premium">خطط متميزة</div>
+            </div>
+            
+            <div class="plans-grid" id="daily-plans">
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="plan-header">
+                        <h3>الخطة اليومية الأساسية</h3>
+                        <div class="plan-price">$50</div>
+                        <div class="plan-period">الحد الأدنى للإيداع</div>
+                    </div>
+                    <div class="plan-body">
+                        <div class="daily-profit">ربح يومي: 5%</div>
+                        <ul class="plan-features">
+                            <li>عائد يصل إلى 10x خلال 20 يوم</li>
+                            <li>سحب يومي للأرباح</li>
+                            <li>دعم فني كامل</li>
+                            <li>إيداع إضافي في أي وقت</li>
+                            <li>تقارير أداء يومية</li>
+                        </ul>
+                        <a href="https://t.me/CryptoEmperor5" class="btn btn-primary plan-button">استثمر الآن</a>
+                    </div>
+                </div>
+                
+                <div class="plan-card popular" data-aos="fade-up" data-aos-delay="100">
+                    <div class="plan-header">
+                        <h3>الخطة اليومية المتقدمة</h3>
+                        <div class="plan-price">$500</div>
+                        <div class="plan-period">الحد الأدنى للإيداع</div>
+                    </div>
+                    <div class="plan-body">
+                        <div class="daily-profit">ربح يومي: 7%</div>
+                        <ul class="plan-features">
+                            <li>عائد يصل إلى 14x خلال 20 يوم</li>
+                            <li>سحب يومي للأرباح</li>
+                            <li>دعم فني متميز</li>
+                            <li>إيداع إضافي في أي وقت</li>
+                            <li>تقارير أداء فورية</li>
+                            <li>مكافأة إحالة 10%</li>
+                        </ul>
+                        <a href="https://t.me/CryptoEmperor5" class="btn btn-primary plan-button">استثمر الآن</a>
+                    </div>
+                </div>
+                
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="plan-header">
+                        <h3>الخطة اليومية الذهبية</h3>
+                        <div class="plan-price">$2000</div>
+                        <div class="plan-period">الحد الأدنى للإيداع</div>
+                    </div>
+                    <div class="plan-body">
+                        <div class="daily-profit">ربح يومي: 10%</div>
+                        <ul class="plan-features">
+                            <li>عائد يصل إلى 20x خلال 20 يوم</li>
+                            <li>سحب يومي للأرباح</li>
+                            <li>دعم فني شخصي</li>
+                            <li>إيداع إضافي في أي وقت</li>
+                            <li>تقارير أداء مفصلة</li>
+                            <li>مكافأة إحالة 15%</li>
+                            <li>مدير استثمار شخصي</li>
+                        </ul>
+                        <a href="https://t.me/CryptoEmperor5" class="btn btn-primary plan-button">استثمر الآن</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="plans-grid" id="weekly-plans" style="display: none;">
+                <!-- خطط أسبوعية -->
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="plan-header">
+                        <h3>الخطة الأسبوعية البرونزية</h3>
+                        <div class="plan-price">$100</div>
+                        <div class="plan-period">الحد الأدنى للإيداع</div>
+                    </div>
+                    <div class="plan-body">
+                        <div class="daily-profit">ربح أسبوعي: 25%</div>
+                        <ul class="plan-features">
+                            <li>عائد يصل إلى 5x خلال 4 أسابيع</li>
+                            <li>سحب أسبوعي للأرباح</li>
+                            <li>دعم فني كامل</li>
+                            <li>إيداع إضافي في أي وقت</li>
+                            <li>تقارير أداء أسبوعية</li>
+                        </ul>
+                        <a href="https://t.me/CryptoEmperor5" class="btn btn-primary plan-button">استثمر الآن</a>
+                    </div>
+                </div>
+                
+                <div class="plan-card popular" data-aos="fade-up" data-aos-delay="100">
+                    <div class="plan-header">
+                        <h3>الخطة الأسبوعية الفضية</h3>
+                        <div class="plan-price">$1000</div>
+                        <div class="plan-period">الحد الأدنى للإيداع</div>
+                    </div>
+                    <div class="plan-body">
+                        <div class="daily-profit">ربح أسبوعي: 40%</div>
+                        <ul class="plan-features">
+                            <li>عائد يصل إلى 8x خلال 4 أسابيع</li>
+                            <li>سحب أسبوعي للأرباح</li>
+                            <li>دعم فني متميز</li>
+                            <li>إيداع إضافي في أي وقت</li>
+                            <li>تقارير أداء مفصلة</li>
+                            <li>مكافأة إحالة 12%</li>
+                        </ul>
+                        <a href="https://t.me/CryptoEmperor5" class="btn btn-primary plan-button">استثمر الآن</a>
+                    </div>
+                </div>
+                
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="plan-header">
+                        <h3>الخطة الأسبوعية البلاتينية</h3>
+                        <div class="plan-price">$5000</div>
+                        <div class="plan-period">الحد الأدنى للإيداع</div>
+                    </div>
+                    <div class="plan-body">
+                        <div class="daily-profit">ربح أسبوعي: 60%</div>
+                        <ul class="plan-features">
+                            <li>عائد يصل إلى 12x خلال 4 أسابيع</li>
+                            <li>سحب أسبوعي للأرباح</li>
+                            <li>دعم فني شخصي</li>
+                            <li>إيداع إضافي في أي وقت</li>
+                            <li>تقارير أداء فورية</li>
+                            <li>مكافأة إحالة 18%</li>
+                            <li>مدير استثمار شخصي</li>
+                        </ul>
+                        <a href="https://t.me/CryptoEmperor5" class="btn btn-primary plan-button">استثمر الآن</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- يمكن إضافة المزيد من الخطط هنا -->
+        </div>
+    </section>
+
+    <!-- قسم الإحصائيات -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+                    <h3 class="counter" data-target="1540000">0</h3>
+                    <p>إجمالي الأموال المُدارة</p>
+                </div>
+                
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="counter" data-target="12430">0</h3>
+                    <p>عدد المستثمرين النشطين</p>
+                </div>
+                
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="counter" data-target="327">0</h3>
+                    <p>متوسط الأرباح للمستثمرين %</p>
+                </div>
+                
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <h3>2024</h3>
+                    <p>نعمل منذ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم فريق العمل -->
+    <section class="features" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-aos="fade-up">فريق العمل</h2>
+                <p data-aos="fade-up" data-aos-delay="200">تعرف على فريق الخبراء الذي يدير استثماراتك</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member" data-aos="fade-up" data-aos-delay="0">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="أحمد الخبير" class="member-photo">
+                    <div class="member-info">
+                        <h3>أحمد الخبير</h3>
+                        <div class="position">مدير الاستثمارات</div>
+                        <p>خبرة 15 عاماً في إدارة المحافظ الاستثمارية وتحليل الأسواق المالية.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="سارة المالية" class="member-photo">
+                    <div class="member-info">
+                        <h3>سارة المالية</h3>
+                        <div class="position">محللة الأسواق</div>
+                        <p>متخصصة في تحليل اتجاهات الأسواق وتوقع الفرص الاستثمارية.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="محمد المحاسب" class="member-photo">
+                    <div class="member-info">
+                        <h3>محمد المحاسب</h3>
+                        <div class="position">رئيس قسم المراجعة</div>
+                        <p>يشرف على تدقيق جميع العمليات المالية لضمان الشفافية والدقة.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1551836026-d5c0889dd6d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="خالد التقني" class="member-photo">
+                    <div class="member-info">
+                        <h3>خالد التقني</h3>
+                        <div class="position">مدير الأمن السيبراني</div>
+                        <p>يتأكد من أمان بياناتك واستثماراتك باستخدام أحدث تقنيات الحماية.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-title" style="margin-top: 60px;">
+                <h2 data-aos="fade-up">الشهادات والتراخيص</h2>
+                <p data-aos="fade-up" data-aos-delay="200">نعمل بموجب تراخيص معتمدة وشفافية كاملة</p>
+            </div>
+            
+            <div class="certificates">
+                <div class="certificate-item" data-aos="fade-up" data-aos-delay="0">
+                    <div class="certificate-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>مرخصة من DFSA</h3>
+                    <p>هيئة دبي للخدمات المالية</p>
+                </div>
+                
+                <div class="certificate-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="certificate-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>شهادة الأيزو 27001</h3>
+                    <p>لأمن المعلومات</p>
+                </div>
+                
+                <div class="certificate-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="certificate-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>فريق معتمد</h3>
+                    <p>جميع المديرين معتمدين من هيئات رقابية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الشهادات -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-aos="fade-up">آراء عملائنا</h2>
+                <p data-aos="fade-up" data-aos-delay="200">اكتشف ما يقوله عملاؤنا عن تجربتهم مع CapitalPro</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="testimonial-text">
+                        "استثمرت 200 دولار مع CapitalPro وسحبت أكثر من 1200 دولار خلال شهر واحد فقط. الدعم الفني كان ممتازاً والمعاملات سريعة وآمنة."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="محمد أحمد">
+                        </div>
+                        <div class="author-info">
+                            <h4>محمد أحمد</h4>
+                            <p>مستثمر منذ 6 أشهر</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-text">
+                        "كنت متشككاً في البداية، ولكن بعد تجربة الخطة المبتدئة، زادت ثقتي بالمنصة. الآن استثمر في الخطة المتقدمة وأرباحي تتجاوز التوقعات."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="سارة خالد">
+                        </div>
+                        <div class="author-info">
+                            <h4>سارة خالد</h4>
+                            <p>مستثمرة منذ 4 أشهر</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-text">
+                        "نظام الإحالة ممتاز، حيث حصلت على مكافآت إضافية من خلال إحالة الأصدقاء. المنصة شفافة وتوفر تقارير مفصلة عن استثماراتي."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="أحمد علي">
+                        </div>
+                        <div class="author-info">
+                            <h4>أحمد علي</h4>
+                            <p>مستثمر منذ 8 أشهر</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التقييمات الخارجية -->
+    <section class="external-reviews">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-aos="fade-up">تقييماتنا على المنصات العالمية</h2>
+                <p data-aos="fade-up" data-aos-delay="200">اكتشف ما يقوله عملاؤنا عنا على منصات التقييم الموثوقة</p>
+            </div>
+            
+            <div class="review-platforms">
+                <div class="platform-item" data-aos="fade-up" data-aos-delay="0">
+                    <div class="platform-logo">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="platform-rating">4.8/5</div>
+                    <div class="platform-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>Trustpilot</p>
+                    <a href="#" class="platform-link">شاهد التقييمات</a>
+                </div>
+                
+                <div class="platform-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="platform-logo">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="platform-rating">4.9/5</div>
+                    <div class="platform-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Google Reviews</p>
+                    <a href="#" class="platform-link">شاهد التقييمات</a>
+                </div>
+                
+                <div class="platform-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="platform-logo">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <div class="platform-rating">4.7/5</div>
+                    <div class="platform-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Facebook</p>
+                    <a href="#" class="platform-link">شاهد التقييمات</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الأسئلة الشائعة -->
+    <section class="features" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-aos="fade-up">الأسئلة الشائعة</h2>
+                <p data-aos="fade-up" data-aos-delay="200">إجابات على الأسئلة الأكثر شيوعاً من عملائنا</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
+                    <div class="faq-question">
+                        <span>كيف أبدأ الاستثمار مع CapitalPro؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>يمكنك البدء في الاستثمار معنا خلال 3 خطوات بسيطة: 1) إنشاء حساب على المنصة، 2) اختيار خطة الاستثمار المناسبة، 3) إيداع المبلغ المطلوب والبدء في جني الأرباح.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question">
+                        <span>ما هو الحد الأدنى للاستثمار؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>الحد الأدنى للاستثمار هو 50 دولار أمريكي فقط، مما يتيح الفرصة للجميع للبدء في الاستثمار وتحقيق أرباح مضمونة.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">
+                        <span>متى يمكنني سحب الأرباح؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>يمكنك سحب الأرباح بشكل يومي في معظم خططنا الاستثمارية. تتم معالجة طلبات السحب خلال 24 ساعة كحد أقصى.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question">
+                        <span>هل الأرباح مضمونة؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نعم، جميع خططنا الاستثمارية تأتي بأرباح مضمونة مدعومة باستراتيجيات استثمارية محكمة وإدارة احترافية من قبل فريقنا المالي.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المدونة -->
+    <section class="features" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-aos="fade-up">مدونة CapitalPro</h2>
+                <p data-aos="fade-up" data-aos-delay="200">آخر المستجدات والنصائح في عالم الاستثمار</p>
+            </div>
+            
+            <div class="blog-grid">
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="0">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="مقال استثماري" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-date">15 يونيو 2023</div>
+                        <h3>أفضل استراتيجيات الاستثمار في 2023</h3>
+                        <p class="blog-excerpt">تعرف على أحدث استراتيجيات الاستثمار التي يمكن أن تساعدك في تحقيق أرباح مضمونة في العام الحالي.</p>
+                        <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="مقال استثماري" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-date">10 يونيو 2023</div>
+                        <h3>كيف تبدأ الاستثمار بمبلغ بسيط؟</h3>
+                        <p class="blog-excerpt">دليل شامل للمبتدئين في عالم الاستثمار لبدء رحلتهم الاستثمارية بمبالغ بسيطة وتحقيق أرباح ملموسة.</p>
+                        <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="مقال استثماري" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-date">5 يونيو 2023</div>
+                        <h3>مستقبل العملات الرقمية والاستثمار فيها</h3>
+                        <p class="blog-excerpt">تحليل شامل لمستقبل العملات الرقمية وكيف يمكن الاستفادة منها في بناء محفظة استثمارية ناجحة.</p>
+                        <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التسجيل -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2 data-aos="fade-up">ابدأ رحلتك الاستثمارية اليوم</h2>
+            <p data-aos="fade-up" data-aos-delay="200">انضم إلى آلاف المستثمرين الناجحين وابدأ في تحقيق أرباح مضمونة تصل إلى 10 أضعاف استثمارك. سجل الآن وابدأ برأس مال 50 دولار فقط.</p>
+            <a href="https://t.me/CryptoEmperor5" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">إنشاء حساب مجاني</a>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>CapitalPro</h3>
+                    <p>منصة استثمارية رائدة تهدف إلى توفير فرص استثمارية مضمونة للمستثمرين من جميع أنحاء العالم.</p>
+                    <div class="social-links">
+                        <a href="https://t.me/CryptoEmperor5"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#features">المميزات</a></li>
+                        <li><a href="#plans">خطط الاستثمار</a></li>
+                        <li><a href="#team">فريق العمل</a></li>
+                        <li><a href="#testimonials">آراء العملاء</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>الدعم الفني</h3>
+                    <ul>
+                        <li><a href="https://t.me/CryptoEmperor5">الأسئلة الشائعة</a></li>
+                        <li><a href="https://t.me/CryptoEmperor5">الشروط والأحكام</a></li>
+                        <li><a href="https://t.me/CryptoEmperor5">سياسة الخصوصية</a></li>
+                        <li><a href="https://t.me/CryptoEmperor5">اتصل بنا</a></li>
+                        <li><a href="https://t.me/CryptoEmperor5">التواصل المباشر</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@capitalpro.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (234) 567-8900</li>
+                        <li><i class="fas fa-map-marker-alt"></i> دبي، الإمارات العربية المتحدة</li>
+                        <li><a href="https://t.me/CryptoEmperor5" style="color: var(--secondary); font-weight: bold;"><i class="fab fa-telegram"></i> انضم إلى قناتنا على التليجرام</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 CapitalPro. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- أزرار عائمة -->
+    <div class="floating-buttons">
+        <a href="https://t.me/CryptoEmperor5" class="floating-btn telegram">
+            <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://wa.me/1234567890" class="floating-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- المكتبات -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // تهيئة AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // شريط التقدم
+        window.onscroll = function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+            
+            // تأثير الهيدر عند التمرير
+            if (window.scrollY > 50) {
+                document.getElementById("header").classList.add("scrolled");
+            } else {
+                document.getElementById("header").classList.remove("scrolled");
+            }
+        };
+
+        // القائمة المتحركة
+        document.getElementById('mobileMenu').addEventListener('click', function() {
+            document.getElementById('nav').classList.toggle('active');
+        });
+
+        // العدادات المتحركة
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(() => animateCounters(), 1);
+                } else {
+                    counter.innerText = target.toLocaleString();
+                }
+            });
+        }
+
+        // تشغيل العدادات عند التمرير للقسم
+        window.addEventListener('scroll', function() {
+            const statsSection = document.querySelector('.stats');
+            const sectionPos = statsSection.getBoundingClientRect().top;
+            const screenPos = window.innerHeight / 1.3;
+            
+            if (sectionPos < screenPos) {
+                document.querySelectorAll('.counter').forEach(counter => {
+                    const value = counter.innerText;
+                    if (counter.innerText === '0') {
+                        animateCounters();
+                    }
+                });
+            }
+        });
+
+        // إغلاق القائمة عند النقر على رابط
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav').classList.remove('active');
+            });
+        });
+
+        // الأسئلة الشائعة
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+            });
+        });
+
+        // تبديل علامات تبويب الخطط
+        document.querySelectorAll('.plan-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // إزالة النشاط من جميع العلامات
+                document.querySelectorAll('.plan-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // إضافة النشاط للعلامة المختارة
+                tab.classList.add('active');
+                
+                // إخفاء جميع الخطط
+                document.querySelectorAll('.plans-grid').forEach(grid => {
+                    grid.style.display = 'none';
+                });
+                
+                // عرض الخطط المختارة
+                const tabType = tab.getAttribute('data-tab');
+                document.getElementById(`${tabType}-plans`).style.display = 'grid';
+            });
+        });
+
+        // إضافة تأثيرات للبطاقات عند التمرير
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .plan-card, .testimonial-card, .team-member, .certificate-item, .platform-item, .blog-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
